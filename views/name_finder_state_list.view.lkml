@@ -1,34 +1,42 @@
 view: name_finder_state_list {
   derived_table: {
     sql: SELECT
-          usa_1910_current.state  AS usa_1910_current_state,
-          COUNT(*) AS usa_1910_current_count
-      FROM `bigquery-public-data.usa_names.usa_1910_current`
-           AS usa_1910_current
-      GROUP BY
-          1
-      ORDER BY
-          2 DESC
-      LIMIT 500
-       ;;
+            names_list.state  AS state,
+            names_list.gender  AS gender,
+            names_list.name  AS name,
+            names_list.number  AS rank_number,
+            names_list.year  AS year,
+        FROM `bigquery-public-data.usa_names.usa_1910_current`
+             AS names_list
+            ;;
   }
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
-  dimension: usa_1910_current_state {
+  dimension: state {
     type: string
-    sql: ${TABLE}.usa_1910_current_state ;;
+    sql: ${TABLE}.state ;;
   }
 
-  dimension: usa_1910_current_count {
+  dimension: gender {
+    type: string
+    sql: ${TABLE}.gender ;;
+  }
+
+  dimension: name {
+    type: string
+    sql: ${TABLE}.name ;;
+  }
+
+  dimension: rank_number {
     type: number
-    sql: ${TABLE}.usa_1910_current_count ;;
+    sql: ${TABLE}.rank_number ;;
   }
 
-  set: detail {
-    fields: [usa_1910_current_state, usa_1910_current_count]
+  dimension: year {
+    type: number
+    sql: ${TABLE}.year ;;
   }
 }
