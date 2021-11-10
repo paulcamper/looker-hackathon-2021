@@ -20,6 +20,11 @@ view: name_finder_state_list {
     sql: ${TABLE}.state ;;
   }
 
+  dimension: state_map {
+    map_layer_name: us_states
+    sql: ${TABLE}.state ;;
+  }
+
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
