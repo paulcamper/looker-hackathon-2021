@@ -12,29 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+const fs = require("fs");
+const path = require("path");
 
-const path = require('path')
-
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const PATHS = {
-  app: path.join(__dirname, 'src/index.js'),
-}
+  app: path.join(__dirname, "src/index.js"),
+};
 
 module.exports = {
   entry: {
     app: PATHS.app,
   },
   output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
+    path: __dirname + "/dist",
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
+        test: /\.(js)$/,
+        loader: "babel-loader",
         exclude: /node_modules/,
         include: /src/,
         sideEffects: false,
@@ -42,13 +42,12 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.jsx', '.js'],
+    extensions: [".js"],
     fallback: { buffer: false },
   },
-  devtool: 'source-map',
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerMode: process.env.ANALYZE_MODE || 'disabled',
+      analyzerMode: process.env.ANALYZE_MODE || "disabled",
     }),
   ],
-}
+};

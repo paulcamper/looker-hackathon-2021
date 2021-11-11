@@ -13,12 +13,11 @@
 // limitations under the License.
 
 module.exports = (api) => {
-  api.cache(true)
-
+  api.cache(true);
   return {
     presets: [
       [
-        '@babel/env',
+        "@babel/env",
         {
           targets: {
             esmodules: true,
@@ -26,31 +25,18 @@ module.exports = (api) => {
           modules: false,
         },
       ],
-      [
-        '@babel/preset-react',
-        {
-          development: process.env.BABEL_ENV !== 'build',
-        },
-      ],
     ],
     env: {
       build: {
-        ignore: [
-          '**/*.d.ts',
-          '**/*.test.js',
-          '**/*.test.jsx',
-          '__snapshots__',
-          '__tests__',
-        ],
+        ignore: ["**/*.test.js", "**/*.test.jsx", "__snapshots__", "__tests__"],
       },
     },
-    ignore: ['node_modules'],
+    ignore: ["node_modules"],
     plugins: [
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-proposal-object-rest-spread',
-      '@babel/plugin-transform-runtime',
-      'babel-plugin-styled-components',
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-runtime",
       ["@babel/plugin-proposal-private-methods", { "loose": true }]
     ],
-  }
-}
+  };
+};

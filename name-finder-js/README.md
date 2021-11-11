@@ -1,6 +1,6 @@
 # Looker Extension name-finder
 
-name-finder is a Looker extension using React and JavaScript.
+name-finder is a Looker extension using JavaScript.
 
 ## Getting Started for Development
 
@@ -40,7 +40,7 @@ name-finder is a Looker extension using React and JavaScript.
    ```
     project_name: "name-finder"
     application: name-finder {
-        label: "name-finder React/JavaScript extension"
+        label: "name-finder JavaScript extension"
         url: "http://localhost:8080/bundle.js"
         entitlements: {
           core_api_methods: ["me"]
@@ -76,7 +76,7 @@ To allow other people to use the extension, build the JavaScript bundle file and
    ```
     project_name: "name-finder"
     application: name-finder {
-        label: "A Looker React/JavaScript extension"
+        label: "A Looker JavaScript extension"
         file: "bundle.js"
         entitlements: {
           core_api_methods: ["me"]
