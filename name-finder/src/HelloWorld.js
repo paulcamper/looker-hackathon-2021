@@ -15,6 +15,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Space, ComponentsProvider, Span } from '@looker/components'
 import { ExtensionContext, ExtensionContext2 } from '@looker/extension-sdk-react'
+import styled from "styled-components"
 
 const extensionContext = useContext(
     ExtensionContext2
@@ -32,6 +33,15 @@ const updateRunButton = (running) => {
 const setupDashboard = (dashboard) => {
     setDashboard(dashboard)
   }
+
+export const EmbedContainer = styled.div{
+  width: 100%;
+  height: 95vh;
+  & > iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
 
 const embedCtrRef = useCallback(
     (el) => {
@@ -87,7 +97,7 @@ export const HelloWorld = () => {
         </Space>
         <EmbedContainer ref={embedCtrRef} />
       </ComponentsProvider>
-    </>    
+    </>
   )
 
 }
