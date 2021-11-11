@@ -4,6 +4,7 @@ import {
 } from "@looker/extension-sdk";
 
 (async () => {
+  extensionSDK.updateTitle('🐤 Name Finder')
   const extensionSdk = await connectExtensionHost();
   const sdk40 = LookerExtensionSDK40.createClient(extensionSdk);
   const result = await sdk40.me();
