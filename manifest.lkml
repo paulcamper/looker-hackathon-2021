@@ -6,5 +6,6 @@ application: name-finder {
   file: "bundle.js"
   entitlements: {
     core_api_methods: ["me"]
+    use_embeds: yes
   }
 }
