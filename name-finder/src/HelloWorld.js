@@ -53,7 +53,7 @@ export const HelloWorld = () => {
     const initialize = async () => {
       try {
         const value = await core40SDK.ok(core40SDK.me());
-        setMessage(`Welcome to the 🐤 Name Finder, ${value.display_name} !`);
+        setMessage(`Welcome to the 🐤 Cool Name Finder, ${value.display_name} !`);
       } catch (error) {
         setMessage("Error occured getting information about me!");
         console.error(error);
